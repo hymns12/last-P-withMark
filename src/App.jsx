@@ -15,18 +15,37 @@ function App({poolData, heandleStake, handleUnstake, handleClaimReward, handlePo
     <Theme>
       <Hearder />
           <Container>
-          <Flex my={'8'} align={'center'} className='justify-between ' gap={'20'}>
-              <span>
-                <h2>stacking pool Information</h2>
-                      <p>total stake: {poolData?.totalStakers}</p>
-                      <p>total staked: {poolData?.totalStaked}</p>
+            <h2 
+            style={{
+              fontSize:'2rem', 
+              fontWeight:'700', 
+              marginTop: '10px', 
+              textAlign:'center',
+              fontFamily:'cursive' 
+            }}
+            >Stacking pool Information</h2>
+          <Flex 
+          my={'8'} 
+          align={'center'} 
+          className='justify-between ' 
+          gap={'20'} 
+          style={{
+            border:'1px solid black', 
+            padding: '20px', 
+            borderRadius:'10px',
+
+          }}
+          >
+              <span style={{fontSize:'20px', padding:'10px'}}>
+                      <p>Total Stake: {poolData?.totalStakers}</p>
+                      <p>Total Staked: {poolData?.totalStaked}</p>
                       <p>Reward Reserve: {poolData?.rewardRate}</p>
                       <p>Reward Rate: {poolData?.rewardRate}</p>
                       <p>Your Stake Balance: {userStakeBalance}</p>
                       <p>Your Reward Per Second: {userRewardPerSec}</p>
               </span>
               
-              <span>
+              <span style={{flexDirection:'row'}}>
                     <button onClick={() => heandleStake}>button1</button>
                     <button onClick={() => handleUnstake}>button2</button>
                     <button onClick={() => handleClaimReward}>button3</button>
