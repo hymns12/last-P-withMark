@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 
-const StackingContracts = () => {
+const StackingContracts = ({poolData, heandleStake, handleUnstake, handleClaimReward, handlePoolSelection}) => {
 
     const [provider, setProvider] = useState(); // state var
     const [StackingContract, setStackingContract] = useState();
