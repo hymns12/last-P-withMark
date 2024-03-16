@@ -4,16 +4,25 @@ import { Hearder } from './componet/Hearder';
 import '@radix-ui/themes/styles.css';
 import { configureWeb3Modal } from './connettor/index';
 import { Container, Flex, Theme } from '@radix-ui/themes';
+import { ethers, id } from 'ethers';
+import connectToContract from './connettor/connectToContract';
+import { useWeb3ModalAccount, useWeb3ModalProvider } from '@web3modal/ethers/react';
+import { Controller } from './controllers/ContractController';
 
 configureWeb3Modal();
 
 function App({poolData, heandleStake, handleUnstake, handleClaimReward, handlePoolSelection, userStakeBalance, userRewardPerSec}) {
-
+  const { chainId } = useWeb3ModalAccount();
+  const { walletProvider } = useWeb3ModalProvider();
+  const controller = new Controller(chainId, walletProvider);
 
   return (
     <>
     <Theme>
       <Hearder />
+      <button onClick={async() => {
+await controller.createPool(ethers.parseUnits("100",18))
+      }}>Create pool</button>
           <Container>
             <h2 
             style={{
@@ -46,9 +55,9 @@ function App({poolData, heandleStake, handleUnstake, handleClaimReward, handlePo
               </span>
               
               <span style={{flexDirection:'row'}}>
-                    <button onClick={() => heandleStake}>button1</button>
-                    <button onClick={() => handleUnstake}>button2</button>
-                    <button onClick={() => handleClaimReward}>button3</button>
+                    <button onClick={heandleStake}>button1</button>
+                    <button onClick={() => handleUnstake(id)}>button2</button>
+                    <button onClick={() => handleClaimReward(id)}>button3</button>
                     <button onClick={() => handlePoolSelection}>button4</button>
                 </span>
           </Flex>

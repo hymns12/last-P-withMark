@@ -6,10 +6,10 @@ export const SEPOLIA_CAIN = 11155111
 // 2. Set chains
 const sepolia = {
   chainId: SEPOLIA_CAIN,
-  name: 'Ethereum',
+  name: 'Seploia',
   currency: 'ETH',
   explorerUrl: 'https://sepolia.infura.io/v3/',
-  rpcUrl: 'https://sepolia.etherscan.io'
+  rpcUrl: import.meta.env.VITE_rpc_url
 }
 
 // 3. Create modal
