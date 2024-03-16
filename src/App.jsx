@@ -21,7 +21,7 @@ function App({poolData, heandleStake, handleUnstake, handleClaimReward, handlePo
     <Theme>
       <Hearder />
       <button onClick={async() => {
-await controller.createPool(ethers.parseUnits("100",18))
+         await controller.createPool(ethers.parseUnits("100",18))
       }}>Create pool</button>
           <Container>
             <h2 
