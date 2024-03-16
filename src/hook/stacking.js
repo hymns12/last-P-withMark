@@ -49,9 +49,29 @@ const StackingContracts = () => {
                 }
             };
 
+            const handleUnstake = async () => { // Function to handle unstake action
+                try {
+                  await StackingContract.unstake(selectedPoolId); // Call unstake function on the contract
+                  await updateUserDate(await provider.getSigner().getAddress()); // Update user data after unstake
+                } catch (error) {
+                  console.error("Error unstaking:", error); // Log error if unstake fails
+                  alert("Error unstaking. Please try again."); // Show alert for unstake error
+                }
+              };
+
+            const handleClaimReward = async () => { // Function to handle claim reward action
+                try {
+                  await StackingContract.claimReward(selectedPoolId); // Call claim reward function on the contract
+                  await updateUserDate(await provider.getSigner().getAddress()); // Update user data after claiming reward
+                } catch (error) {
+                  console.error("Error claiming reward:", error); // Log error if claiming reward fails
+                  alert("Error claiming reward. Please try again."); // Show alert for claiming reward error
+                }
+              };
+
             const handlePoolSelection = async (poolId) => {
                 setSelectedPoolId(poolId);
-                await updateUserDate(await provider.getSineer().getAddress)
+                await updateUserDate(await provider.getSineer().getAddress);
             };
         }
     });

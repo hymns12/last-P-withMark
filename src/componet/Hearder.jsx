@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flex, Theme, Text, Container } from '@radix-ui/themes';
-import '@radix-ui/themes/styles.css'
+import '@radix-ui/themes/styles.css';
+
 
 export const Hearder = () => {
     
