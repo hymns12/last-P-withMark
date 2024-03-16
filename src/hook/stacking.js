@@ -29,6 +29,7 @@ const StackingContracts = ({poolData, heandleStake, handleUnstake, handleClaimRe
             const updateUserDate = async (userAddress) => {
                 const poolId = selectedPoolId;
                 const userStckeBalance = await StackingContract.getUserStakeBalance(poolId, userAddress);
+                console.log(userStckeBalance)
                 setUserStckeBalance(userReward);
 
                 const userReward = await StackingContract.getUserClaimableReward(poolId, userAddress);
